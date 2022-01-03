@@ -70,7 +70,8 @@ const firebaseDatabase = (() => {
     const getByInMemory = async (ref, by, equalTo) => {
         _checkProps(ref, by, equalTo);
         const entities = await list(ref);
-        return entities.find(e => e[by]?.toUpperCase() === equalTo?.toUpperCase()) || null;
+        console.log(entities);
+        return entities.find(item => item[by].toUpperCase() == equalTo.toUpperCase());
     };
 
     const getListBy = (ref = "/", by, equalTo) => {
@@ -100,7 +101,7 @@ const firebaseDatabase = (() => {
     const listByInMemory = async (ref, by, equalTo) => {
         _checkProps(ref, by, equalTo);
         const entities = await list(ref);
-        return entities.filter(e => e[by].toString().toLowerCase() === equalTo.toString().toLowerCase());
+        return entities.filter(e => e[by]?.toString().toLowerCase() === equalTo.toString().toLowerCase());
     };
 
 

@@ -1,4 +1,5 @@
 $(document).ready(async function () {
+    var currentSelectedImg = null;
     const inputs = getInputs();
     configureForm();
 
@@ -8,6 +9,10 @@ $(document).ready(async function () {
         UTIL.toggleDisableForm();
         try {
             const shop = await shopFacade.getByUserId();
+
+            let category = await categoryShopFacade.getById(shop._idCategory);
+
+
             setBanner(shop);
             inputs.name.val(shop.name);
             inputs.cnpj.val(shop.cnpj);
@@ -15,7 +20,7 @@ $(document).ready(async function () {
             inputs.instagram.val(shop.instagram);
             inputs.facebook.val(shop.facebook);
             inputs.state.val(shop.state);
-            inputs.category.val(shop._idCategory);
+            inputs.category.val(category.name);
 
         } catch (error) {
             UTIL.showToast(UTIL.errorHandler(error));
@@ -97,7 +102,7 @@ $(document).ready(async function () {
 
     async function getBannerShop(shop) {
         if (!currentSelectedImg) {
-            return shop.images ? shop.images.banner : null;
+            return shop.banner;
         }
 
         const metadata = {

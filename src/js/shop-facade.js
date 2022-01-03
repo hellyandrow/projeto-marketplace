@@ -15,7 +15,7 @@ const _shopPropertiesInDatabase = {
 const shopFacade = {
     insert: async function (name, cnpj, comercialPhone, state, instagram, facebook, categoryName) {
         try {
-            let category = await categoryProductFacade.getByName(categoryName);
+            let category = await categoryShopFacade.getByName(categoryName);
             if (!category) {
                 throw MESSAGES.GLOBAL.CATEGORY_NOT_FOUND;
             }
@@ -100,7 +100,7 @@ const shopFacade = {
 
     update: async function (name, cnpj, comercialPhone, state, instagram, facebook, bannerPath, categoryName, access) {
         try {
-            let category = await categoryProductFacade.getByName(categoryName);
+            let category = await categoryShopFacade.getByName(categoryName);
             if (!category) {
                 throw MESSAGES.GLOBAL.CATEGORY_NOT_FOUND;
             }
@@ -114,7 +114,7 @@ const shopFacade = {
                 [_shopPropertiesInDatabase.facebook]: facebook || "-",
                 [_shopPropertiesInDatabase.banner]: bannerPath,
                 [_shopPropertiesInDatabase._idCategory]: category.id || "",
-                [_shopPropertiesInDatabase.access]: access
+                [_shopPropertiesInDatabase.access]: access || 0
             };
 
             await firebaseDatabase.updateData(data, `${_shopRef}/${id}`);

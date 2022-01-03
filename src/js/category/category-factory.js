@@ -1,10 +1,9 @@
 const categoryFactory = (function () {
-    const _propertiesInDatabase = ['name', 'id']
+    const _propertiesInDatabase = ['name', 'id'];
 
     function create(entity) {
-        const invalidProperty = Object.keys(entity).filter(k => !_propertiesInDatabase.includes(k))
+        const invalidProperty = Object.keys(entity).filter(k => !_propertiesInDatabase.includes(k));
         if (invalidProperty.length > 0) {
-            debugger;
             console.error("[createCategory] Invalid property: " + invalidProperty);
         }
         return entity;
@@ -12,5 +11,5 @@ const categoryFactory = (function () {
 
     return {
         create
-    }
+    };
 })()

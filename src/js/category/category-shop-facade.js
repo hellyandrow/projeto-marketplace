@@ -1,26 +1,15 @@
 const categoryShopFacade = (function () {
-    const _categoryShopRef = "";
+    const _categoryShopRef = "categories";
 
     async function getByName(name) {
         try {
-            const index = CONSTANTS.CATEGORIES.findIndex(c => c?.toUpperCase() === name?.toUpperCase());
-            if (index != -1) {
-                return categoryFactory.create({
-                    id: index,
-                    name
-                });
-            }
-            return null;
+            return await firebaseDatabase.getByInMemory(_categoryShopRef, "name", name);
         } catch (error) {
             throw error;
         }
     }
     async function getById(id) {
-        const name = CONSTANTS.CATEGORIES.find((c, index) => index.toString() === id.toString());
-        if (name) {
-            return getByName(name);
-        }
-        return null;
+        return await firebaseDatabase.getByInMemory(_categoryShopRef, "id", id);
     }
 
     // async function insert(name) {

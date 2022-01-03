@@ -4,10 +4,10 @@ const categoryProductFacade = (function () {
     async function getByName(name) {
         try {
             const entity = await firebaseDatabase.getByInMemory(_categoryProductRef, "name", name);
-            if (entity) {
+            if (!entity) {
                 return categoryFactory.create(entity);
             }
-            return null;
+            return entity;
         } catch (error) {
             throw error;
         }
@@ -20,7 +20,7 @@ const categoryProductFacade = (function () {
             });
             return categoryFactory.create({
                 name, id
-            })
+            });
         } catch (error) {
             throw error;
         }
@@ -38,8 +38,8 @@ const categoryProductFacade = (function () {
         getByName,
         insert,
         list
-    }
+    };
 
-})()
+})();
 
 

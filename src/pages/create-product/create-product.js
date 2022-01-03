@@ -9,8 +9,8 @@ $(document).ready(async function () {
     function configureForm() {
         $("#form-create-shop").on("submit", onSubmitCreate);
         categoryProductFacade.list().then(categories => {
-            $('#selectCategoryProduct').html(UTIL.domRender.getHtmlOptionsSelect(categories.map(c => c.name), CONSTANTS.LABELS.SELECT_CATEGORY))
-        })
+            $('#selectCategoryProduct').html(UTIL.domRender.getHtmlOptionsSelect(categories.map(c => c.name), CONSTANTS.LABELS.SELECT_CATEGORY));
+        });
     }
 
     async function onSubmitCreate(event) {
@@ -46,7 +46,7 @@ $(document).ready(async function () {
             inputs.price.val(),
             getValueCategory()
         );
-        return product
+        return product;
     }
 
     async function updateProductWithImage(productId, shopId, categoryId) {
@@ -64,7 +64,7 @@ $(document).ready(async function () {
     }
 
     function getValueCategory() {
-        return inputs.customCategory.val() || inputs.category.val();
+        return inputs.category.val();
     }
 
     function getInputs() {
@@ -72,7 +72,7 @@ $(document).ready(async function () {
             name: $("#inputName"),
             description: $("#inputDescription"),
             price: $("#inputPrice"),
-            category: $("#selectCategory"),
+            category: $("#selectCategoryProduct"),
             customCategory: $("#inputCustomCategory")
         };
     }
