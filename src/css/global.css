@@ -1,0 +1,91 @@
+/* html{
+    font-size: 62.5%;
+}
+.navbar__icon {
+    font-size: 1.6rem;
+  } */
+
+
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.md-toast-error {
+  background-color: rgb(241, 85, 85);
+  color: white;
+  font-size: 16px;
+}
+
+.md-toast-success {
+  background-color: rgb(40, 167, 69);
+  color: white;
+  font-size: 16px;
+}
+
+.md-toast-warning {
+  background-color: #ffc107;
+  color: white;
+  font-size: 16px;
+}
+
+.details__text-details {
+  font-size: 1.2rem;
+}
+
+.details__title-details {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.form {
+  margin-top: 10vh;
+}
+
+.form__title{
+  text-align: center;
+  font-size: 1.5rem;
+} 
+
+.form__select{
+  height: 58px;
+}
+
+.img-profile-container {
+    width: 250px;
+    height: 250px;
+}
+
+.img-profile {
+    border-radius: 100%;
+    cursor: pointer;
+    border: 5px solid #ccc;
+}
+
+.custom-button-upload {
+  border: 0px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.img-banner-container {
+  width: 400px;
+  height: 200px;
+}
+
+.min-img-product-container {
+  height: 100px;
+}
+
+.img-banner {
+    cursor: pointer;
+    border: 5px solid #ccc;
+}
+.img-min-profile {
+  border-radius: 100%;
+  width: 35px;
+  height:35px;
+}

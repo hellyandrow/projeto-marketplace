@@ -1,0 +1,71 @@
+{
+    "product": {
+        "guid_product": {
+            "_idLoja": "idloja",
+            "_idUser": "idUser",
+            "description": "description",
+            "images": {
+                "guidImage": "camimho",
+                "guidImage2": "caminho2"
+            },
+            "name": "name",
+            "unitPrice": "price"
+        }
+    },
+    "sales": {
+        "_idSale": {
+            "_idShop": "_idShop",
+            "_idUser": "_idUser",
+            "_idProduct": "_idProduct",
+            "sale_status": "1",
+            "quantity": "10",
+            "unitaryPrice": "10"
+        }
+    },
+    "sale_status": {
+        "1": "Pedido Pendente",
+        "2": "Pedido Aceito",
+        "3": "Pedido Finalizado"
+    },
+    "shop": {
+        "guid_shop": {
+            "access": 0,
+            "address": {
+                "city": "manaus",
+                "state": "AM"
+            },
+            "images": {
+                "_idImage": "caminho"
+            },
+            "name": "Shopee",
+            "productOffered": "productOffered",
+            "sale": {
+                "guid_sale": {
+                    "_idProduct": "idProduct",
+                    "_idUser": "idUser",
+                    "discount": 10,
+                    "finalPrice": 0,
+                    "sales": 0,
+                    "quantity": 0
+                }
+            }
+        }
+    },
+    "user": {
+        "guidUser": {
+            "address": {
+                "city": "Manaus",
+                "state": "AM"
+            },
+            "email": "email",
+            "images": {
+                "profile": {
+                    "guidImage": "caminho"
+                }
+            },
+            "name": "Bruno",
+            "phone": "phone",
+            "points": 0
+        }
+    }
+}
